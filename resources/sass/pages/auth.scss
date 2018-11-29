@@ -1,0 +1,53 @@
+
+.auth {
+	background-color: $primary;
+}
+
+.hero {
+    
+	&.is-success {
+        background: #f2f6fa;
+        
+		.nav {
+			box-shadow: none;
+		}
+    }
+    
+	.nav {
+		box-shadow: none;
+	}
+}
+
+.box {
+	margin-top: 5rem;
+}
+
+.avatar {
+	margin-top: -70px;
+    padding-bottom: 20px;
+    
+	.logo {
+		padding: 5px;
+		background: #fff;
+		border-radius: 50%;
+		box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
+		width: 128px;
+		height: 128px;
+		display: inline-flex;
+		align-content: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+}
+
+input {
+	font-weight: 300;
+}
+
+p {
+    font-weight: 700;
+    
+	&.subtitle {
+		padding-top: 1rem;
+	}
+}

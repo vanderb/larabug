@@ -1,0 +1,74 @@
+
+@import "~bulmaswatch/flatly/variables";
+@import "variables";
+@import "~bulma/bulma";
+
+@import "pages/auth";
+
+
+main {
+    margin: 2rem auto;
+}
+
+.navbar-item strong {
+    color: #fff;
+}
+
+.quillWrapper {
+    margin-bottom: 1rem;
+
+    .ql-snow.ql-toolbar {
+        border: 1px solid transparent;
+
+        &+.ql-container.ql-snow {
+            border-radius: .4rem;
+            border-top: 1px solid #ccc;
+            box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+        }
+    }
+
+
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+
+.panel-footer {
+    background-color: #fff;
+    border-radius: 0 0 .4em .4em;
+    padding: 0.5em 0.75em;
+    line-height: 1.25;
+    border: 1px solid#dee2e5;
+    border-top: 0;
+}
+
+.button {
+    &.is-transparent {
+        border: 0;
+    }
+}
+
+
+#attachments {
+    width: 100%;
+    border-style: dashed;
+    border-radius: .4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.panel-block {
+    flex-direction: column;
+}
+
+.attachment-table {
+    margin-top: 1rem;
+    td {
+        font-size: 80%;
+    }
+}
