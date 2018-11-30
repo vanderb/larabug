@@ -14,6 +14,10 @@ main {
     color: #fff;
 }
 
+form {
+    width: 100%;
+}
+
 .quillWrapper {
     margin-bottom: 1rem;
 
@@ -71,4 +75,12 @@ p {
     td {
         font-size: 80%;
     }
+}
+
+.notification {
+    margin: .5rem auto;
+}
+
+.column-quantity {
+    width: 40px;
 }

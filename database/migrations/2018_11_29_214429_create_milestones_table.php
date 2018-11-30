@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIssuesTable extends Migration
+class CreateMilestonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,11 @@ class CreateIssuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('issues', function (Blueprint $table) {
+        Schema::create('milestones', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string('subject');
-            $table->text('description');
-
-            $table->unsignedInteger('project_id');
-            $table->unsignedInteger('category_id');
-            $table->unsignedInteger('milestone_id');
-
+            $table->string('name');
+            $table->timestamp('due_date')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ class CreateIssuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('issues');
+        Schema::dropIfExists('milestones');
     }
 }

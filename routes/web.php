@@ -19,4 +19,6 @@ Route::middleware(['web', 'auth'])->group(function() {
     Route::get('issues/mine', 'IssueController@mine')->name('issues.mine');
     Route::resource('issues', 'IssueController');
 
+    Route::resource('milestones', 'MilestoneController');
+
 });
