@@ -21,7 +21,7 @@ class CreateIssuesTable extends Migration
 
             $table->tinyInteger('priority')->default(1);
             $table->integer('percentage')->default(0);
-            $table->tinyInteger('state')->default(0);
+            $table->integer('state')->default(0);
             $table->boolean('resolved')->default(0);
 
             $table->unsignedInteger('project_id')->nullable();

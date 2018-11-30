@@ -12345,3 +12345,16 @@ progress.show-value.is-large:after {
   line-height: 1.5rem;
 }
 
+.comments {
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.comments .box {
+  margin-top: 0;
+}
+
+.comments .box.mine {
+  background-color: #ecf0f1;
+}
+

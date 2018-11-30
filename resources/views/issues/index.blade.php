@@ -39,11 +39,18 @@
                             </td>
                             <td>
                                 <a href="{{ route('issues.show', $issue->id) }}">{{ $issue->subject }}</a><br>
-                                <small>{{ $issue->percentage }}% complete</small>
+                                <small>
+                                    @if($issue->project)
+                                    <a href="">{{ $issue->project->name }}</a>
+                                    @endif
+                                    @if($issue->percentage)
+                                        {{ $issue->percentage }}% complete
+                                    @endif
+                                </small>
                                 <br>
                                 <small>
                                     <i>
-                                    Created {{ $issue->created_at->diffForHumans() }} by <a href="{{ route('issues.user', $issue->created_by->id) }}">{{ $issue->created_by->full_name }}</a>  | Edited {{ $issue->updated_at->diffForHumans() }}
+                                    <C></C>reated {{ $issue->created_at->diffForHumans() }} by <a href="{{ route('issues.user', $issue->created_by->id) }}">{{ $issue->created_by->full_name }}</a>  | Edited {{ $issue->updated_at->diffForHumans() }}
                                     </i>
                                 </small>
                             </td>

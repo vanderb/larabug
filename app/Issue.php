@@ -31,4 +31,12 @@ class Issue extends Model
     public function milestone() {
         return $this->belongsTo(Milestone::class);
     }
+    
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function project() {
+        return $this->belongsTo(Project::class);
+    }
 }

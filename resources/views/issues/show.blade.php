@@ -16,6 +16,52 @@
                 </div>
             </div>
         </div>
+
+        <div class="panel">
+            <p class="panel-heading">
+                Comments
+            </p>
+            <div class="panel-block">
+
+                <div class="control comments">
+                    @foreach($issue->comments as $comment)
+                    <div class="box @if($comment->user->id == auth()->user()->id) mine @endif">
+                        <article class="media">
+                          <div class="media-content">
+                            <div class="content">
+                              <p>
+                                <small>
+                                    {{ $comment->created_at->diffForHumans() }} by 
+                                    <a href="{{ route('issues.user', $comment->user->id) }}">
+                                        @if($comment->user->id == auth()->user()->id)
+                                        <strong>me</strong>
+                                        @else
+                                        {{ $comment->user->full_name }}
+                                        @endif
+                                    </a>
+                                </small>
+                                <div class="comment">
+                                    {!! $comment->comment !!}
+                                </div>
+                              </p>
+                            </div>
+                          </div>
+                        </article>
+                      </div>
+                    @endforeach
+                </div>
+
+                <div class="control">
+                    @include('notifications')
+
+                    <form action="{{ route('issues.comments.store', $issue->id) }}" method="POST">
+                        @csrf
+                        <editor name="comment" value="{{ old('comment') }}"></editor>
+                        <button type="submit" class="button">Save comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="column is-3">
         <div class="panel">
@@ -71,7 +117,7 @@
                         <td>
                 
                             @if($issue->assigned_to)
-                            <a href="">{{ $issue->assigned_to->full_name }}</a>
+                            <a href="{{ route('issues.user', $issue->assigned_to->id) }}">{{ $issue->assigned_to->full_name }}</a>
                             @else
                             <i>Not assigned</i>
                             @endif

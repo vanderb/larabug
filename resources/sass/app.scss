@@ -149,3 +149,17 @@ progress.show-value {
     }
 
 }
+
+
+.comments {
+    padding-top: 1.5rem;
+    margin-bottom: 2rem;
+    
+    .box {
+        margin-top: 0;
+
+        &.mine {
+            background-color: $white-ter
+        }
+    }
+}

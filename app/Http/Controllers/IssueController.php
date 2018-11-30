@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Issue;
 use App\Milestone;
 use App\User;
+use App\Comment;
+use App\Project;
 
 class IssueController extends Controller
 {
@@ -23,7 +25,8 @@ class IssueController extends Controller
      */
     public function index()
     {
-        return view('issues.index')->withIssues($this->model->with(['created_by'])->paginate(20));
+        $issues = $this->model->with(['created_by'])->orderBy('priority', 'desc')->orderBy('created_at')->paginate(20);
+        return view('issues.index')->withIssues($issues);
     }
 
     /**
@@ -32,13 +35,15 @@ class IssueController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function mine() {
-        return view('issues.index')->withIssues($this->model->where('assignee_id', auth()->user()->id)->with(['created_by'])->paginate(20));
+        $issues = $this->model->where('assignee_id', auth()->user()->id)->with(['created_by'])->paginate(20);
+        return view('issues.index')->withIssues($issues);
     }
 
     public function userIssues($id, User $users) {
+        $issues = $this->model->where('assignee_id', $id)->with(['created_by'])->paginate(20);
         return view('issues.index')
-        ->withUser($users->find($id))
-        ->withIssues($this->model->where('assignee_id', $id)->with(['created_by'])->paginate(20));
+            ->withUser($users->find($id))
+            ->withIssues($issues);
     }
 
     /**
@@ -46,11 +51,12 @@ class IssueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Milestone $milestones, User $users)
+    public function create(Milestone $milestones, Project $projects, User $users)
     {
         return view('issues.create')->with([
             'milestones' => $milestones->all(),
-            'priorities' => ['low', 'normal', 'hight'],
+            'priorities' => ['low', 'normal', 'high'],
+            'projects' => $projects->all(),
             'users' => $users->all()
         ]);
     }
@@ -76,6 +82,21 @@ class IssueController extends Controller
         return redirect()->route('issues.index')->withMessage('Issue was created.');
     }
 
+    public function storeComment($id, Request $request, Comment $comments)
+    {
+        $request->validate([
+            'comment' => 'required'
+        ]);
+
+        $comments->create([
+            'comment' => $request->get('comment'),
+            'user_id' => auth()->user()->id,
+            'issue_id' => $id
+        ]);
+
+        return redirect()->back()->withMessage('Comment was saved');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -84,7 +105,7 @@ class IssueController extends Controller
      */
     public function show($id)
     {
-        return view('issues.show')->withIssue($this->model->with(['assigned_to', 'milestone'])->find($id));
+        return view('issues.show')->withIssue($this->model->with(['assigned_to', 'milestone', 'comments.user'])->find($id));
     }
 
     /**

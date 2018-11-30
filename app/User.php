@@ -42,4 +42,8 @@ class User extends Authenticatable
         return $this->issues->sum('progress') / $this->issues->count();
     }
 
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
 }

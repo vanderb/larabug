@@ -18,9 +18,13 @@ Route::middleware(['web', 'auth'])->group(function() {
 
     Route::get('issues/mine', 'IssueController@mine')->name('issues.mine');
     Route::get('users/{id}/issues', 'IssueController@userIssues')->name('issues.user');
+    Route::post('issues/{id}/comments', 'IssueController@storeComment')->name('issues.comments.store');
+
     Route::resource('issues', 'IssueController');
 
     Route::resource('milestones', 'MilestoneController');
+    Route::resource('projects', 'ProjectController');
+
     Route::resource('users', 'UserController');
 
 

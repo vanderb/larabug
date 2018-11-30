@@ -58,8 +58,11 @@
                             <td style="vertical-align: middle">Project</td>
                             <td>
                                 <div class="select">
-                                    <select name="projet_id">
-                                        <option>No Project</option>
+                                    <select name="project_id">
+                                        <option value="">No Project</option>
+                                        @foreach($projects as $project)
+                                        <option value="{{ $project->id }}" @if(old('assignee_id') == $project->id) selected @endif>{{ $project->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </td>
@@ -83,7 +86,7 @@
                             <td>
                                 <div class="select">
                                     <select name="assignee_id">
-                                        <option>Not selected</option>
+                                        <option value="">Not selected</option>
                                         @foreach($users as $user)
                                         <option value="{{ $user->id }}" @if(old('assignee_id') == $user->id) selected @endif>{{ $user->full_name }}</option>
                                         @endforeach
@@ -97,7 +100,7 @@
                             <td>
                                 <div class="select">
                                     <select name="milestone_id">
-                                        <option>No Milestone</option>
+                                        <option value="">No Milestone</option>
                                         @foreach($milestones as $milestone)
                                         <option value="{{ $milestone->id }}" @if(old('milestone_id') == $milestone->id) selected @endif>{{ $milestone->name }}</option>
                                         @endforeach
