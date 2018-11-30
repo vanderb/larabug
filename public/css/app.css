@@ -12345,13 +12345,34 @@ progress.show-value.is-large:after {
   line-height: 1.5rem;
 }
 
+progress.show-value.has-percentage:after {
+  color: white;
+}
+
 .comments {
   padding-top: 1.5rem;
   margin-bottom: 2rem;
 }
 
+.comments .comment {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.comments .comment:nth-child(2n) {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
 .comments .box {
   margin-top: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
 }
 
 .comments .box.mine {

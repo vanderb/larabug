@@ -134,6 +134,7 @@ progress.show-value {
         left: 1rem;
         font-size: calc(1rem / 1.5);
         line-height: 1rem;
+
     }
 
     &.is-small:after {
@@ -148,6 +149,10 @@ progress.show-value {
         line-height: 1.5rem;
     }
 
+    &.has-percentage:after {
+        color: white;
+    }
+
 }
 
 
@@ -155,11 +160,23 @@ progress.show-value {
     padding-top: 1.5rem;
     margin-bottom: 2rem;
     
+    .comment {
+        width: 100%;
+        display: flex;
+        margin-bottom: 1.5rem;
+
+        &:nth-child(2n) {
+            justify-content: flex-end;
+        }
+    }
+    
     .box {
         margin-top: 0;
+        flex: 0 0 50%;
 
         &.mine {
             background-color: $white-ter
         }
+
     }
 }

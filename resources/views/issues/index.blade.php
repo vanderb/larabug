@@ -38,27 +38,43 @@
                                 </span>
                             </td>
                             <td>
-                                <a href="{{ route('issues.show', $issue->id) }}">{{ $issue->subject }}</a><br>
-                                <small>
+                                <a href="{{ route('issues.show', $issue->id) }}">{{ $issue->subject }}</a>
+                                <small style="display: block;">
                                     @if($issue->project)
-                                    <a href="">{{ $issue->project->name }}</a>
+                                        <a href="">{{ $issue->project->name }}</a>
                                     @endif
                                     @if($issue->percentage)
                                         {{ $issue->percentage }}% complete
                                     @endif
                                 </small>
-                                <br>
                                 <small>
                                     <i>
-                                    <C></C>reated {{ $issue->created_at->diffForHumans() }} by <a href="{{ route('issues.user', $issue->created_by->id) }}">{{ $issue->created_by->full_name }}</a>  | Edited {{ $issue->updated_at->diffForHumans() }}
+                                        Created {{ $issue->created_at->diffForHumans() }} by <a href="{{ route('issues.user', $issue->created_by->id) }}">{{ $issue->created_by->full_name }}</a>  | Edited {{ $issue->updated_at->diffForHumans() }}
                                     </i>
                                 </small>
                             </td>
-                            <td class="has-text-right">
-                                <a href="" class="button is-danger is-small">
-                                    <font-awesome-icon icon="trash"></font-awesome-icon> <span>Delete</span>
-                                </a>
+                            <td style="width: 15%">
+                                <progress class="progress show-value is-large @if($issue->percentage) has-percentage @endif" value="{{$issue->percentage}}" max="100">{{$issue->percentage}}%</progress>
                             </td>
+                            <td style="width: 10%" class="has-text-centered">
+                                <span class="tag">
+                                    {{ config('larabug.priorities')[$issue->priority] }}
+                                </span>
+
+                                <div>
+                                    <small>{{ config('larabug.states')[$issue->state] }}</small>
+                                </div>
+                            </td>
+                            @if(request()->route()->getName() == 'issues.index')
+                            <td>
+                               <small>
+                                Assigned to<br>
+                                <a href="{{ route('issues.user', $issue->assigned_to->id) }}">
+                                    {{ $issue->assigned_to->full_name }}
+                                </a>
+                               </small>
+                            </td>
+                            @endif
                             </tr>
                             @endforeach
                         </tbody>
@@ -76,7 +92,7 @@
         <div class="panel">
             <div class="panel-block">
                 <a href="{{ route('issues.create') }}" class="button is-link is-fullwidth">
-                Create new Issue
+                    Create new Issue
                 </a>
             </div>
         </div>

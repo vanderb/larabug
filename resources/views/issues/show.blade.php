@@ -25,29 +25,30 @@
 
                 <div class="control comments">
                     @foreach($issue->comments as $comment)
-                    <div class="box @if($comment->user->id == auth()->user()->id) mine @endif">
-                        <article class="media">
-                          <div class="media-content">
-                            <div class="content">
-                              <p>
-                                <small>
-                                    {{ $comment->created_at->diffForHumans() }} by 
-                                    <a href="{{ route('issues.user', $comment->user->id) }}">
-                                        @if($comment->user->id == auth()->user()->id)
-                                        <strong>me</strong>
-                                        @else
-                                        {{ $comment->user->full_name }}
-                                        @endif
-                                    </a>
-                                </small>
-                                <div class="comment">
-                                    {!! $comment->comment !!}
+                    <div class="comment">
+                        <div class="box @if($comment->user->id == auth()->user()->id) mine @endif">
+                            <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <small>
+                                        {{ $comment->created_at->diffForHumans() }} by 
+                                        <a href="{{ route('issues.user', $comment->user->id) }}">
+                                            @if($comment->user->id == auth()->user()->id)
+                                            <strong>me</strong>
+                                            @else
+                                            {{ $comment->user->full_name }}
+                                            @endif
+                                        </a>
+                                    </small>
+
+                                    <p>                             
+                                        {!! $comment->comment !!}
+                                    </p>
                                 </div>
-                              </p>
                             </div>
-                          </div>
-                        </article>
-                      </div>
+                            </article>
+                        </div>
+                    </div>
                     @endforeach
                 </div>
 
