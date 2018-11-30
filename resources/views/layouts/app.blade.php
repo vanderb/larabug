@@ -30,25 +30,25 @@
                 <span class="navbar-item">
                     <font-awesome-icon icon="bug" class="has-text-link"></font-awesome-icon> LARA<strong>BUG</strong>
                 </span>
-            
+
                 <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 </a>
             </div>
-            
+
             <div id="navbarBasicExample" class="navbar-menu">
                 <div class="navbar-start">
                     <a class="navbar-item" href="{{ route('dashboard') }}">
                         Overview
                     </a>
-                
+
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
                             Issues
                         </a>
-                
+
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="{{ route('issues.mine') }}">
                                 Mine
@@ -67,7 +67,7 @@
                         <a class="navbar-link">
                             Projects
                         </a>
-                
+
                         <div class="navbar-dropdown">
                             <a class="navbar-item">
                                 All
@@ -75,23 +75,17 @@
                         </div>
                     </div>
 
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
+                    <div class="navbar-item is-hoverable">
+                        <a class="navbar-item" href="{{ route('milestones.index') }}">
                             Milestones
                         </a>
-                
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                                All
-                            </a>
-                        </div>
                     </div>
 
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
                             Settings
                         </a>
-                
+
                         <div class="navbar-dropdown">
                             <a class="navbar-item">
                                 All
@@ -103,7 +97,7 @@
                         <a class="navbar-link">
                             User
                         </a>
-                
+
                         <div class="navbar-dropdown">
                             <a class="navbar-item">
                                 Profile
@@ -121,7 +115,7 @@
                     </div>
 
                 </div>
-            
+
                 <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="field has-addons">

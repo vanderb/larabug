@@ -18,10 +18,13 @@ Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 
+import Datepicker from 'vue-bulma-datepicker'
+
 const app = new Vue({
     el: '#app',
     components: {
-        vueDropzone: vue2Dropzone
+        vueDropzone: vue2Dropzone,
+        Datepicker
     },
     data() {
         return {

@@ -2934,6 +2934,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_dropzone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_dropzone__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_dropzone_dist_vue2Dropzone_min_css__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue2_dropzone_dist_vue2Dropzone_min_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue2_dropzone_dist_vue2Dropzone_min_css__);
+throw new Error("Cannot find module \"vue-bulma-datepicker\"");
 
 __webpack_require__(12);
 
@@ -2954,10 +2955,13 @@ Vue.component('FontAwesomeIcon', __WEBPACK_IMPORTED_MODULE_2__fortawesome_vue_fo
 
 
 
+
+
 var app = new Vue({
     el: '#app',
     components: {
-        vueDropzone: __WEBPACK_IMPORTED_MODULE_4_vue2_dropzone___default.a
+        vueDropzone: __WEBPACK_IMPORTED_MODULE_4_vue2_dropzone___default.a,
+        Datepicker: __WEBPACK_IMPORTED_MODULE_6_vue_bulma_datepicker___default.a
     },
     data: function data() {
         return {
