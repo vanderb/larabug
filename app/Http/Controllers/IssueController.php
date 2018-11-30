@@ -25,8 +25,13 @@ class IssueController extends Controller
      */
     public function index()
     {
-        $issues = $this->model->with(['created_by'])->orderBy('priority', 'desc')->orderBy('created_at')->paginate(20);
-        return view('issues.index')->withIssues($issues);
+        $issues = $this->model->with(['created_by'])->orderBy('priority', 'desc')->orderBy('created_at');
+
+        if(request()->has('search')) {
+            $issues->where('subject', 'LIKE', '%'.request()->get('search').'%');
+        }
+
+        return view('issues.index')->withIssues($issues->paginate(20));
     }
 
     /**

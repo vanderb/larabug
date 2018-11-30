@@ -12379,3 +12379,8 @@ progress.show-value.has-percentage:after {
   background-color: #ecf0f1;
 }
 
+.box {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+

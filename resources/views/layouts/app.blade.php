@@ -93,9 +93,18 @@
                         </div>
                     </div>
 
+                </div>
+
+                <div class="navbar-end">
+                        
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
-                            My Account
+                            <figure class="image is-16x16" style="margin-right: 5px;">
+                                <img src="{{ auth()->user()->avatar }}" alt="Avatar">
+                            </figure>
+                            <span>
+                                My Account
+                            </span>
                         </a>
 
                         <div class="navbar-dropdown">
@@ -114,21 +123,22 @@
                         </div>
                     </div>
 
-                </div>
+                    <div class="navbar-item">
+                        <form action="{{ route('issues.index') }}">
+                            <div class="field has-addons">
+                            
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Find an Issue" name="search" value="{{ request()->get('search') }}">
+                                </div>
+                                <div class="control">
+                                    <button type="submit" class="button is-link">
+                                        Search
+                                    </button>
+                                </div>
 
-                <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="field has-addons">
-                        <div class="control">
-                            <input class="input" type="text" placeholder="Find an Issue">
-                        </div>
-                        <div class="control">
-                            <a class="button is-link">
-                            Search
-                            </a>
-                        </div>
+                            </div>
+                        </form>
                     </div>
-                </div>
                 </div>
             </div>
         </div>

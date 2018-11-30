@@ -13,6 +13,29 @@
                     Edit User
                 </p>
                 <div class="panel-block">
+
+                    <div class="control">
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-left">
+                                    <figure class="image is-48x48">
+                                        <img src="{{ $user->avatar }}" alt="Avatar">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <div class="content">
+                                    <small>
+                                        <strong>PROFILBILD</strong>
+                                        <br>                            
+                                        Ändern Sie Ihr Profilbild auf <a href="gravatar.com" target="_blank">gravatar.com</a>, indem Sie Ihre E-Mail-Adresse <i>"{{ $user->email }}"</i> benutzen.
+                                    </small>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+
                     <div class="control">
                         @include('notifications')
         

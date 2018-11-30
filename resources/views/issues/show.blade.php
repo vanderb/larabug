@@ -28,25 +28,31 @@
                     <div class="comment">
                         <div class="box @if($comment->user->id == auth()->user()->id) mine @endif">
                             <article class="media">
-                            <div class="media-content">
-                                <div class="content">
-                                    <small>
-                                        {{ $comment->created_at->diffForHumans() }} by 
-                                        <a href="{{ route('issues.user', $comment->user->id) }}">
-                                            @if($comment->user->id == auth()->user()->id)
-                                            <strong>me</strong>
-                                            @else
-                                            {{ $comment->user->full_name }}
-                                            @endif
-                                        </a>
-                                    </small>
-
-                                    <p>                             
-                                        {!! $comment->comment !!}
-                                    </p>
+                                <div class="media-left">
+                                    <figure class="image is-24x24">
+                                        <img src="{{ $comment->user->avatar }}" alt="Avatar">
+                                    </figure>
                                 </div>
-                            </div>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <small>
+                                            {{ $comment->created_at->diffForHumans() }} by 
+                                            <a href="{{ route('issues.user', $comment->user->id) }}">
+                                                @if($comment->user->id == auth()->user()->id)
+                                                <strong>me</strong>
+                                                @else
+                                                {{ $comment->user->full_name }}
+                                                @endif
+                                            </a>
+                                        </small>
+
+                                        <p>                             
+                                            {!! $comment->comment !!}
+                                        </p>
+                                    </div>
+                                </div>
                             </article>
+
                         </div>
                     </div>
                     @endforeach

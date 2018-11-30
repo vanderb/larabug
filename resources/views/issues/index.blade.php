@@ -81,7 +81,13 @@
                         </table>
                     @else
                         <div class="notification">
-                        No Issues found
+                            No Issues found
+                            @if(request()->has('search'))
+                            for search
+                            <br>
+                            <a href="{{ route('issues.index') }}" class="button">Show all Issues</a>
+                            @else 
+                            @endif
                         </div>
                     @endif
                 </div>
