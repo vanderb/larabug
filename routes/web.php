@@ -20,5 +20,7 @@ Route::middleware(['web', 'auth'])->group(function() {
     Route::resource('issues', 'IssueController');
 
     Route::resource('milestones', 'MilestoneController');
+    Route::resource('users', 'UserController');
+
 
 });

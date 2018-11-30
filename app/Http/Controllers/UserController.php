@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Milestone;
+
 use App\User;
 
-class IssueController extends Controller
+class UserController extends Controller
 {
+
+    public $model;
+
+    public function __construct(User $model)
+    {
+        $this->model = $model;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,16 +23,7 @@ class IssueController extends Controller
      */
     public function index()
     {
-        return view('issues.index');
-    }
-
-    /**
-     * Display a listing of the resource of current logged in user
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function mine() {
-        return view('issues.index');
+        return view('users.index')->withUsers($this->model->paginate(20));
     }
 
     /**
@@ -32,13 +31,9 @@ class IssueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Milestone $milestones, User $users)
+    public function create()
     {
-        return view('issues.create')->with([
-            'milestones' => $milestones->all(),
-            'priorities' => ['low', 'normal', 'hight'],
-            'users' => $users->all()
-        ]);
+        return view('users.create');
     }
 
     /**
@@ -49,7 +44,16 @@ class IssueController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed'
+        ]);
+        
+        $this->model->create($request->all());
+
+        return redirect()->route('users.index')->withMessage('User was created');
     }
 
     /**
@@ -60,7 +64,6 @@ class IssueController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -71,7 +74,7 @@ class IssueController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('users.edit')->withUser($this->model->find($id));
     }
 
     /**
@@ -83,7 +86,16 @@ class IssueController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'password' => 'sometimes|confirmed'
+        ]);
+
+        $this->model->find($id)->update(array_filter($request->all()));
+
+        return redirect()->route('users.index')->withMessage('User was updated');
     }
 
     /**

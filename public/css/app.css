@@ -12288,3 +12288,17 @@ p {
   width: 40px;
 }
 
+.flatpickr-calendar .flatpickr-month {
+  height: 40px;
+  margin-top: .5rem;
+}
+
+.flatpickr-calendar .flatpickr-day.selected {
+  background: #1abc9c;
+  border-color: #1abc9c;
+}
+
+.notification ul {
+  margin-top: 0;
+}
+

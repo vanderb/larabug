@@ -51,10 +51,10 @@
 
                         <div class="navbar-dropdown">
                             <a class="navbar-item" href="{{ route('issues.mine') }}">
-                                Mine
+                                Assigned to me
                             </a>
                             <a class="navbar-item" href="{{ route('issues.index') }}">
-                                All
+                                All Issues
                             </a>
                             <hr class="navbar-divider">
                             <a class="navbar-item" href="{{ route('issues.create') }}">
@@ -87,19 +87,19 @@
                         </a>
 
                         <div class="navbar-dropdown">
-                            <a class="navbar-item">
-                                All
+                            <a class="navbar-item" href="{{ route('users.index') }}">
+                                Users
                             </a>
                         </div>
                     </div>
 
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
-                            User
+                            My Account
                         </a>
 
                         <div class="navbar-dropdown">
-                            <a class="navbar-item">
+                            <a class="navbar-item" href="{{ route('users.edit', auth()->user()->id) }}">
                                 Profile
                             </a>
                             <hr class="navbar-divider">

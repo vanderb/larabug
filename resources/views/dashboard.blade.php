@@ -10,13 +10,13 @@
     </div>
 @endsection
 
+
 @section('sidebar')
 <div class="panel">
-    <p class="panel-heading">
-        Ticketdetails
-    </p>
     <div class="panel-block">
-        
+      <a href="{{ route('issues.create') }}" class="button is-link is-fullwidth">
+        Create new Issue
+      </a>
     </div>
 </div>
 @endsection

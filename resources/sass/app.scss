@@ -84,3 +84,25 @@ p {
 .column-quantity {
     width: 40px;
 }
+
+
+.flatpickr-calendar {
+
+    .flatpickr-month {
+        height: 40px;
+        margin-top: .5rem;
+    }
+
+    .flatpickr-day.selected {
+        background: $link;
+        border-color: $link;
+    }    
+    
+}
+
+
+.notification {
+    ul {
+        margin-top: 0;
+    }
+}

@@ -53,9 +53,8 @@
                 <td style="vertical-align: middle">Project</td>
                 <td>
                     <div class="select">
-                        <select>
-                            <option>Select dropdown</option>
-                            <option>With options</option>
+                        <select name="projet_id">
+                            <option>No Project</option>
                         </select>
                     </div>
                 </td>
@@ -65,9 +64,10 @@
                 <td style="vertical-align: middle">Priority</td>
                 <td>
                     <div class="select">
-                        <select>
-                            <option>Select dropdown</option>
-                            <option>With options</option>
+                        <select name="priority">
+                            @foreach($priorities as $key => $priority)
+                            <option value="{{ $key }}" @if(old('priority', 1) == $key) selected @endif>{{ $priority }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </td>
@@ -77,9 +77,11 @@
                 <td style="vertical-align: middle">Assigned to</td>
                 <td>
                     <div class="select">
-                        <select>
-                            <option>Select dropdown</option>
-                            <option>With options</option>
+                        <select name="assignee_id">
+                            <option>Not selected</option>
+                            @foreach($users as $user)
+                            <option value="{{ $user->id }}" @if(old('assignee_id') == $user->id) selected @endif>{{ $user->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </td>
@@ -89,9 +91,11 @@
                 <td style="vertical-align: middle">Milestone</td>
                 <td>
                     <div class="select">
-                        <select>
-                            <option>Select dropdown</option>
-                            <option>With options</option>
+                        <select name="milestone_id">
+                            <option>No Milestone</option>
+                            @foreach($milestones as $milestone)
+                            <option value="{{ $milestone->id }}" @if(old('milestone_id') == $milestone->id) selected @endif>{{ $milestone->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </td>

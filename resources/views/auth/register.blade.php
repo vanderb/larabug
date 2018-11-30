@@ -12,11 +12,24 @@
 
                         <div class="field">
                             <div class="control">
-                                <input class="input is-medium{{ $errors->has('name') ? ' is-danger' : '' }}" name="name" type="text" placeholder="Your Name" value="{{ old('name') }}" required autofocus>
+                                <input class="input is-medium{{ $errors->has('firstname') ? ' is-danger' : '' }}" name="firstname" type="text" placeholder="Your Firstname" value="{{ old('firstname') }}" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('firstname'))
                                 <p class="help is-danger" role="alert">
-                                    {{ $errors->first('name') }}
+                                    {{ $errors->first('firstname') }}
+                                </p>
+                                @endif
+
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="input is-medium{{ $errors->has('lastname') ? ' is-danger' : '' }}" name="lastname" type="text" placeholder="Your Lastname" value="{{ old('lastname') }}" required autofocus>
+
+                                @if ($errors->has('lastname'))
+                                <p class="help is-danger" role="alert">
+                                    {{ $errors->first('lastname') }}
                                 </p>
                                 @endif
 

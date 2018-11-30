@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('milestones.store') }}" method="POST">
+<form action="{{ route('milestones.update', $milestone->id) }}" method="POST">
     @csrf
+    @method('PUT')
+
     <div class="panel">
         <p class="panel-heading">
             Create new Milestone
@@ -14,21 +16,21 @@
                 <div class="field">
                     <label class="label">Name</label>
                     <div class="control">
-                        <input class="input" type="text" name="name" placeholder="Name of Milestone" value="{{ old('name') }}">
+                        <input class="input" type="text" name="name" placeholder="Name of Milestone" value="{{ old('name', $milestone->name) }}">
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Due date (optional)</label>
                     <div class="control">
-                        <datepicker placeholder="Due date" name="due_date" value="{{ old('due_date') }}"></datepicker>
+                        <datepicker placeholder="Due date" name="due_date" value="{{ old('due_date', $milestone->due_date->format('Y-m-d')) }}"></datepicker>
                     </div>
                 </div>
 
                 <div class="field">
                     <label class="label">Description (optional)</label>
                     <div class="control">
-                        <textarea class="textarea" name="description" placeholder="Description">{{ old('description') }}</textarea>
+                        <textarea class="textarea" name="description" placeholder="Description">{{ old('desription', $milestone->desription) }}</textarea>
                     </div>
                 </div>
             </div>
