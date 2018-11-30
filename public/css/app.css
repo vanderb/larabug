@@ -12302,3 +12302,46 @@ p {
   margin-top: 0;
 }
 
+.panel-heading.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.panel-heading.flex div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.panel-block.has-text-left {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+progress.show-value {
+  position: relative;
+}
+
+progress.show-value:after {
+  content: attr(value) "%";
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  font-size: calc(1rem / 1.5);
+  line-height: 1rem;
+}
+
+progress.show-value.is-small:after {
+  line-height: 0.75rem;
+}
+
+progress.show-value.is-medium:after {
+  line-height: 1.25rem;
+}
+
+progress.show-value.is-large:after {
+  line-height: 1.5rem;
+}
+

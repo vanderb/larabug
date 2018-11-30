@@ -28,7 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $appends = ['full_name'];
+    protected $appends = ['full_name', 'issue_progress'];
 
     public function issues() {
         return $this->hasMany(Issue::class, 'assignee_id');
@@ -36,6 +36,10 @@ class User extends Authenticatable
 
     public function getFullNameAttribute() {
         return $this->firstname . ' ' . $this->lastname;
+    }
+
+    public function getIssueProgressAttribute() {
+        return $this->issues->sum('progress') / $this->issues->count();
     }
 
 }

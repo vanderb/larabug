@@ -137,14 +137,7 @@
         <main class="py-4">
 
             <div class="container is-fluid">
-                <div class="columns">
-                    <div class="column is-9">
-                        @yield('content')
-                    </div>
-                    <div class="column is-3">
-                        @yield('sidebar')
-                    </div>
-                </div>
+                @yield('content')
             </div>
 
         </main>

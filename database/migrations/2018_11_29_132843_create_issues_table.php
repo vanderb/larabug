@@ -24,12 +24,12 @@ class CreateIssuesTable extends Migration
             $table->tinyInteger('state')->default(0);
             $table->boolean('resolved')->default(0);
 
-            $table->unsignedInteger('project_id');
-            $table->unsignedInteger('category_id');
-            $table->unsignedInteger('milestone_id');
+            $table->unsignedInteger('project_id')->nullable();
+            $table->unsignedInteger('category_id')->nullable();
+            $table->unsignedInteger('milestone_id')->nullable();
 
             $table->unsignedInteger('creator_id');
-            $table->unsignedInteger('assignee_id');
+            $table->unsignedInteger('assignee_id')->nullable();
 
             $table->timestamps();
         });

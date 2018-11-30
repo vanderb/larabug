@@ -106,3 +106,46 @@ p {
         margin-top: 0;
     }
 }
+
+.panel-heading {
+    &.flex {
+        display: flex;
+
+        div {
+            flex: 1;
+        }
+    }
+}
+
+.panel-block {
+    &.has-text-left {
+        align-items: flex-start;
+    }
+}
+
+
+progress.show-value {
+    position: relative;
+
+    &:after {
+        content: attr(value)'%';
+        position: absolute;
+        top: 0;
+        left: 1rem;
+        font-size: calc(1rem / 1.5);
+        line-height: 1rem;
+    }
+
+    &.is-small:after {
+        line-height: 0.75rem;
+    }
+        
+     &.is-medium:after {
+        line-height: 1.25rem;
+    }
+        
+     &.is-large:after {
+        line-height: 1.5rem;
+    }
+
+}

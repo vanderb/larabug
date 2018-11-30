@@ -9,10 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(fas)
 
-import { VueEditor, Quill } from "vue2-editor";
 
-Vue.component('VueEditor', VueEditor);
 
+Vue.component('Editor', require('./components/Editor'));
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 
 import vue2Dropzone from 'vue2-dropzone'

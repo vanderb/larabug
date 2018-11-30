@@ -17,6 +17,7 @@ Route::middleware(['web', 'auth'])->group(function() {
     Route::get('/', 'PageController@dashboard')->name('dashboard');
 
     Route::get('issues/mine', 'IssueController@mine')->name('issues.mine');
+    Route::get('users/{id}/issues', 'IssueController@userIssues')->name('issues.user');
     Route::resource('issues', 'IssueController');
 
     Route::resource('milestones', 'MilestoneController');
