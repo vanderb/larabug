@@ -14,7 +14,23 @@ class CreateIssuesTable extends Migration
     public function up()
     {
         Schema::create('issues', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id'); 
+
+            $table->string('subject');
+            $table->text('description');
+
+            $table->tinyInteger('priority')->default(1);
+            $table->integer('percentage')->default(0);
+            $table->tinyInteger('state')->default(0);
+            $table->boolean('resolved')->default(0);
+
+            $table->unsignedInteger('project_id');
+            $table->unsignedInteger('category_id');
+            $table->unsignedInteger('milestone_id');
+
+            $table->unsignedInteger('creator_id');
+            $table->unsignedInteger('assignee_id');
+
             $table->timestamps();
         });
     }
